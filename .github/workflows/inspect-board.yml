@@ -1,0 +1,53 @@
+name: Inspect monday board
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Do not call monday; write the inspection plan only"
+        required: true
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+      sample_limit:
+        description: "Sample item count"
+        required: true
+        default: "5"
+      activity_limit:
+        description: "Activity log count"
+        required: true
+        default: "20"
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    env:
+      MONDAY_BOARD_ID: ${{ secrets.MONDAY_BOARD_ID }}
+      MONDAY_API_TOKEN: ${{ secrets.MONDAY_API_TOKEN }}
+      MONDAY_MCP_AUTH: ${{ secrets.MONDAY_MCP_AUTH }}
+      REPORT_TIMEZONE: ${{ vars.REPORT_TIMEZONE }}
+      MONDAY_API_VERSION: ${{ vars.MONDAY_API_VERSION }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m unittest discover -s tests
+      - name: Inspect board
+        shell: bash
+        run: |
+          args=(
+            "--sample-limit" "${{ inputs.sample_limit }}"
+            "--activity-limit" "${{ inputs.activity_limit }}"
+            "--output" "output/board_inspection_${{ github.run_id }}.json"
+          )
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            args+=("--dry-run")
+          fi
+          python -m src.inspect_board "${args[@]}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: board-inspection-${{ github.run_id }}
+          path: output/board_inspection_${{ github.run_id }}.json

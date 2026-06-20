@@ -1,0 +1,29 @@
+application:
+  timezone: "${REPORT_TIMEZONE:-America/Indiana/Indianapolis}"
+
+monday:
+  board_id: "${MONDAY_BOARD_ID}"
+
+groups:
+  backlog: "Backlog"
+  on_deck: "On Deck"
+  in_progress: "In Progress"
+  blocked: "Blocked"
+  pending_approval: "Pending Approval"
+  complete: "Complete"
+
+reporting:
+  snapshot_day: "monday"
+  snapshot_time: "08:00"
+  report_day: "friday"
+  report_time: "15:00"
+
+rules:
+  pending_approval_is_delivered: true
+  complete_is_delivered: true
+  include_backlog: false
+
+ai:
+  model: "${OPENAI_MODEL}"
+  max_comments_per_item: 20
+  max_characters_per_item: 12000
