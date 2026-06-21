@@ -12,12 +12,12 @@ Implemented:
 - Board inspection CLI
 - Dry-run inspection output
 - Monday On Deck snapshot CLI
+- Friday evidence collection CLI
 - Manual snapshot GitHub Actions workflow
 - Unit tests using the Python standard library
 
 Not implemented yet:
 
-- Friday evidence collection
 - Metrics
 - AI summary
 - Markdown report rendering
@@ -62,6 +62,12 @@ Real Monday snapshot. This writes `data/snapshots/YYYY-MM-DD.json` and refuses t
 
 ```powershell
 python -m src.snapshot --week-start 2026-06-22
+```
+
+Evidence collection dry run. This loads the snapshot, reads monday, and writes only `output/evidence_dry_run_YYYY-MM-DD.json`:
+
+```powershell
+python -m src.collect_evidence --week-start 2026-06-22 --dry-run
 ```
 
 Run tests:
