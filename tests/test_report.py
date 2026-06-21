@@ -6,6 +6,7 @@ from pathlib import Path
 
 from src.report import (
     build_run_metadata,
+    default_ai_summary_path,
     default_metadata_path,
     default_report_path,
     render_markdown_report,
@@ -132,9 +133,72 @@ def metrics() -> dict:
     }
 
 
+def ai_summary() -> dict:
+    return {
+        "executive_summary": {
+            "summary": "AI summary: one committed item was delivered and one remains on deck.",
+            "notable_facts": ["Delivered item reached Pending Approval."],
+            "risks": ["Carryover item has no planned effort."],
+        },
+        "major_completed_work": [
+            {
+                "item_id": "111",
+                "ticket_title": "Delivered item",
+                "delivery_state": "delivered",
+                "what_was_solved": "The ticket reached Pending Approval.",
+                "documented_impact": "No measured impact documented.",
+                "evidence": ["Pending Approval current group."],
+                "missing_evidence": ["Measured impact is not documented."],
+            }
+        ],
+        "carryover_and_blockers": [
+            {
+                "item_id": "222",
+                "ticket_title": "Carryover item",
+                "current_group": "On Deck",
+                "summary": "The ticket remains planned but not delivered.",
+                "documented_blocker": "",
+                "documented_next_action": "",
+                "evidence": ["Current group is On Deck."],
+                "missing_evidence": ["No next action documented."],
+            }
+        ],
+        "unplanned_work": [],
+        "kpi_supporting_evidence": {
+            "issue_resolution_activity": [
+                {
+                    "item_id": "111",
+                    "ticket_title": "Delivered item",
+                    "priority": "High",
+                    "activation_evidence": "first documented move into On Deck: 2026-06-22T09:00:00+00:00",
+                    "first_work_evidence": "move to delivered group: 2026-06-22T11:00:00+00:00",
+                    "elapsed_calendar_hours": 2.0,
+                    "current_group": "Pending Approval",
+                    "evidence_quality": "Timing evidence available.",
+                    "missing_evidence": [],
+                }
+            ],
+            "candidate_optimizations": [],
+            "weekly_and_monthly_reporting": [],
+        },
+        "missing_or_unclear_information": ["Measured impact is not documented."],
+        "guardrail_attestation": {
+            "kpi_scoring_performed": False,
+            "invented_measurements": False,
+            "invented_recommendations": False,
+            "notes": "Used supplied evidence only.",
+        },
+        "source": {
+            "mode": "ai",
+            "model": "gpt-5.5",
+            "prompt_version": "weekly-report-ai-v0.1.0",
+        },
+    }
+
+
 class ReportTests(unittest.TestCase):
     def test_render_markdown_report_includes_required_sections(self) -> None:
-        markdown = render_markdown_report(evidence(), metrics())
+        markdown = render_markdown_report(evidence(), metrics(), ai_summary())
 
         self.assertIn("# Weekly Monday Report - 2026-06-22", markdown)
         self.assertIn("## Commitment Summary", markdown)
@@ -143,21 +207,25 @@ class ReportTests(unittest.TestCase):
         self.assertIn("## KPI-Supporting Evidence", markdown)
         self.assertIn("Commitment delivery percentage | 50.0%", markdown)
         self.assertIn("Delivered item", markdown)
-        self.assertIn("Not generated in this deterministic phase", markdown)
+        self.assertIn("AI summary: one committed item was delivered", markdown)
+        self.assertIn("No AI-supported candidate optimizations", markdown)
 
     def test_build_run_metadata_records_sources_and_items(self) -> None:
         metadata = build_run_metadata(
             evidence=evidence(),
             metrics=metrics(),
+            ai_summary=ai_summary(),
             evidence_path=Path("output/evidence_dry_run_2026-06-22.json"),
             metrics_path=Path("output/metrics_dry_run_2026-06-22.json"),
+            ai_summary_path=Path("output/ai_summary_dry_run_2026-06-22.json"),
             report_path=Path("output/weekly_report_dry_run_2026-06-22.md"),
             dry_run=True,
         )
 
         self.assertEqual(metadata["board_id"], "6687876910")
         self.assertEqual(metadata["snapshot_file_used"], "data/snapshots/2026-06-22.json")
-        self.assertEqual(metadata["ai_model_used"], "not-used")
+        self.assertEqual(metadata["ai_model_used"], "gpt-5.5")
+        self.assertEqual(metadata["prompt_version"], "weekly-report-ai-v0.1.0")
         self.assertEqual(metadata["item_ids_processed"], ["111", "222"])
         self.assertTrue(metadata["warnings"])
 
@@ -166,6 +234,8 @@ class ReportTests(unittest.TestCase):
 
         self.assertIn("weekly_report_dry_run", str(default_report_path(week_start, True)))
         self.assertIn("weekly_report", str(default_report_path(week_start, False)))
+        self.assertIn("ai_summary_dry_run", str(default_ai_summary_path(week_start, True)))
+        self.assertIn("ai_summary", str(default_ai_summary_path(week_start, False)))
         self.assertIn("run_metadata_dry_run", str(default_metadata_path(week_start, True)))
         self.assertIn("run_metadata", str(default_metadata_path(week_start, False)))
 

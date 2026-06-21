@@ -78,7 +78,7 @@ Metrics dry run. This reads evidence JSON locally and writes `output/metrics_dry
 python -m src.metrics --week-start 2026-06-22 --dry-run
 ```
 
-Report dry run. This reads evidence and metrics JSON locally and writes Markdown plus run metadata:
+Report dry run. This requires evidence, metrics, and AI summary JSON, then writes Markdown plus run metadata:
 
 ```powershell
 python -m src.report --week-start 2026-06-22 --dry-run
@@ -94,6 +94,12 @@ Live AI summary. This sends normalized evidence and metrics to OpenAI and writes
 
 ```powershell
 python -m src.ai_summary --week-start 2026-06-22 --evidence output/evidence_dry_run_2026-06-22.json --metrics output/metrics_dry_run_2026-06-22.json --output output/ai_summary_2026-06-22.json
+```
+
+Final report. This requires the live AI summary file:
+
+```powershell
+python -m src.report --week-start 2026-06-22 --evidence output/evidence_dry_run_2026-06-22.json --metrics output/metrics_dry_run_2026-06-22.json --ai-summary output/ai_summary_2026-06-22.json --output output/weekly_report_2026-06-22.md
 ```
 
 Run tests:
