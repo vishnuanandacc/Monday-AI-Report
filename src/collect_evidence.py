@@ -547,7 +547,7 @@ def evidence_warnings(
         warnings.append(f"{len(missing_committed)} committed item(s) were not found in current board retrieval.")
     if not activity_logs:
         warnings.append("No activity logs were retrieved; activation and movement history may be incomplete.")
-    warnings.append("Potential unplanned work is heuristic until activity history is used by metrics.")
+    warnings.append("Potential unplanned work is heuristic until activity history confirms activation during the reporting week.")
     return warnings
 
 
