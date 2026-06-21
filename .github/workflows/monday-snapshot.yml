@@ -1,0 +1,61 @@
+name: Capture monday snapshot
+
+on:
+  workflow_dispatch:
+    inputs:
+      week_start:
+        description: "Reporting week start date, YYYY-MM-DD. Blank uses current Monday."
+        required: false
+        default: ""
+      dry_run:
+        description: "Read monday but do not write data/snapshots"
+        required: true
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+      overwrite:
+        description: "Allow replacing existing real snapshot"
+        required: true
+        default: "false"
+        type: choice
+        options:
+          - "false"
+          - "true"
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    env:
+      MONDAY_BOARD_ID: ${{ secrets.MONDAY_BOARD_ID }}
+      MONDAY_API_TOKEN: ${{ secrets.MONDAY_API_TOKEN }}
+      MONDAY_MCP_AUTH: ${{ secrets.MONDAY_MCP_AUTH }}
+      REPORT_TIMEZONE: ${{ vars.REPORT_TIMEZONE }}
+      MONDAY_API_VERSION: ${{ vars.MONDAY_API_VERSION }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m unittest discover -s tests
+      - name: Capture snapshot
+        shell: bash
+        run: |
+          args=()
+          if [ -n "${{ inputs.week_start }}" ]; then
+            args+=("--week-start" "${{ inputs.week_start }}")
+          fi
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            args+=("--dry-run")
+          fi
+          if [ "${{ inputs.overwrite }}" = "true" ]; then
+            args+=("--overwrite")
+          fi
+          python -m src.snapshot "${args[@]}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: monday-snapshot-${{ github.run_id }}
+          path: |
+            output/snapshot_dry_run_*.json
+            data/snapshots/*.json

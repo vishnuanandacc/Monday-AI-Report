@@ -1,0 +1,401 @@
+{
+  "board_id": "6687876910",
+  "board_name": "Issue City (Backlog)",
+  "captured_at": "2026-06-21T00:02:14+00:00",
+  "committed_items": [
+    {
+      "created_at": "2026-06-10T19:55:21Z",
+      "department": "Marketing",
+      "due_date": "2026-06-18",
+      "group_id": "group_mm3cp79e",
+      "group_name": "On Deck",
+      "item_id": "12246107121",
+      "item_url": "https://antiquecandleco-team.monday.com/boards/6687876910/pulses/12246107121",
+      "name": "[Spike] Integrate Klaviyo with Meta Ads and Google Ads",
+      "origin": "Tori - [Yet to get details]",
+      "owner": "",
+      "planned_effort_hours": null,
+      "priority": "Low",
+      "updated_at": "2026-06-11T18:48:16Z",
+      "useful_fields": {
+        "actual_effort": {
+          "column_id": "numeric_mkzhxj85",
+          "missing": false,
+          "text": "",
+          "type": "numbers",
+          "value": null
+        },
+        "department": {
+          "column_id": "dropdown_mm40mgzx",
+          "missing": false,
+          "text": "Marketing",
+          "type": "dropdown",
+          "value": {
+            "ids": [
+              2
+            ]
+          }
+        },
+        "due_date": {
+          "column_id": "date4",
+          "missing": false,
+          "text": "2026-06-18",
+          "type": "date",
+          "value": {
+            "changed_at": "2026-06-11T18:48:15.305Z",
+            "date": "2026-06-18"
+          }
+        },
+        "origin": {
+          "column_id": "text_mkzhtmpk",
+          "missing": false,
+          "text": "Tori - [Yet to get details]",
+          "type": "text",
+          "value": "Tori - [Yet to get details]"
+        },
+        "owner": {
+          "column_id": "multiple_person_mm085w1k",
+          "missing": false,
+          "text": "",
+          "type": "people",
+          "value": null
+        },
+        "planned_effort": {
+          "column_id": "numeric_mkzhjxzr",
+          "missing": false,
+          "text": "",
+          "type": "numbers",
+          "value": null
+        },
+        "priority": {
+          "column_id": "color_mm08pcn4",
+          "missing": false,
+          "text": "Low",
+          "type": "status",
+          "value": {
+            "changed_at": "2026-06-11T18:42:28.950Z",
+            "index": 2,
+            "post_id": null
+          }
+        },
+        "user_story": {
+          "column_id": "text_mkzkbv5k",
+          "missing": false,
+          "text": "[Yet to get details]",
+          "type": "text",
+          "value": "[Yet to get details]"
+        },
+        "workflow_status": {
+          "column_id": "status",
+          "missing": false,
+          "text": "On Deck",
+          "type": "status",
+          "value": {
+            "changed_at": "2026-06-11T14:12:15.993Z",
+            "index": 3,
+            "post_id": null
+          }
+        }
+      },
+      "user_story": "[Yet to get details]",
+      "workflow_status": "On Deck"
+    },
+    {
+      "created_at": "2026-06-17T18:17:23Z",
+      "department": "E-commerce",
+      "due_date": "2026-07-01",
+      "group_id": "group_mm3cp79e",
+      "group_name": "On Deck",
+      "item_id": "12303959971",
+      "item_url": "https://antiquecandleco-team.monday.com/boards/6687876910/pulses/12303959971",
+      "name": "Migrate to New Customer Accounts on Shopify Admin",
+      "origin": "We are still using deprecated customer accounts on shopify. This will not be supported beyond July 16th, 2026. We need to migrate and configure to the newer feature",
+      "owner": "",
+      "planned_effort_hours": 3.0,
+      "priority": "High",
+      "updated_at": "2026-06-18T18:55:26Z",
+      "useful_fields": {
+        "actual_effort": {
+          "column_id": "numeric_mkzhxj85",
+          "missing": false,
+          "text": "",
+          "type": "numbers",
+          "value": null
+        },
+        "department": {
+          "column_id": "dropdown_mm40mgzx",
+          "missing": false,
+          "text": "E-commerce",
+          "type": "dropdown",
+          "value": {
+            "ids": [
+              8
+            ]
+          }
+        },
+        "due_date": {
+          "column_id": "date4",
+          "missing": false,
+          "text": "2026-07-01",
+          "type": "date",
+          "value": {
+            "changed_at": "2026-06-17T18:17:16.478Z",
+            "date": "2026-07-01"
+          }
+        },
+        "origin": {
+          "column_id": "text_mkzhtmpk",
+          "missing": false,
+          "text": "We are still using deprecated customer accounts on shopify. This will not be supported beyond July 16th, 2026. We need to migrate and configure to the newer feature",
+          "type": "text",
+          "value": "We are still using deprecated customer accounts on shopify. This will not be supported beyond July 16th, 2026. We need to migrate and configure to the newer feature"
+        },
+        "owner": {
+          "column_id": "multiple_person_mm085w1k",
+          "missing": false,
+          "text": "",
+          "type": "people",
+          "value": null
+        },
+        "planned_effort": {
+          "column_id": "numeric_mkzhjxzr",
+          "missing": false,
+          "text": "3",
+          "type": "numbers",
+          "value": "3"
+        },
+        "priority": {
+          "column_id": "color_mm08pcn4",
+          "missing": false,
+          "text": "High",
+          "type": "status",
+          "value": {
+            "changed_at": "2026-06-17T18:16:06.189Z",
+            "index": 3,
+            "post_id": null
+          }
+        },
+        "user_story": {
+          "column_id": "text_mkzkbv5k",
+          "missing": false,
+          "text": "Customers won't be able to access their accounts if we do not migrate.",
+          "type": "text",
+          "value": "Customers won't be able to access their accounts if we do not migrate."
+        },
+        "workflow_status": {
+          "column_id": "status",
+          "missing": false,
+          "text": "On Deck",
+          "type": "status",
+          "value": {
+            "changed_at": "2026-06-18T18:55:25.852Z",
+            "index": 3,
+            "post_id": null
+          }
+        }
+      },
+      "user_story": "Customers won't be able to access their accounts if we do not migrate.",
+      "workflow_status": "On Deck"
+    },
+    {
+      "created_at": "2026-06-17T18:05:44Z",
+      "department": "E-commerce",
+      "due_date": "",
+      "group_id": "group_mm3cp79e",
+      "group_name": "On Deck",
+      "item_id": "12303823710",
+      "item_url": "https://antiquecandleco-team.monday.com/boards/6687876910/pulses/12303823710",
+      "name": "Update Celigo NetSuite integration",
+      "origin": "integrator.io is being decommissioned by NetSuite. Migrate nodes to SuiteApp.\n\nhttps://zopen.to/m9bjFVwpaTC6KD7fT58z",
+      "owner": "",
+      "planned_effort_hours": 4.0,
+      "priority": "Moderate",
+      "updated_at": "2026-06-18T18:55:54Z",
+      "useful_fields": {
+        "actual_effort": {
+          "column_id": "numeric_mkzhxj85",
+          "missing": false,
+          "text": "",
+          "type": "numbers",
+          "value": null
+        },
+        "department": {
+          "column_id": "dropdown_mm40mgzx",
+          "missing": false,
+          "text": "E-commerce",
+          "type": "dropdown",
+          "value": {
+            "ids": [
+              8
+            ]
+          }
+        },
+        "due_date": {
+          "column_id": "date4",
+          "missing": false,
+          "text": "",
+          "type": "date",
+          "value": null
+        },
+        "origin": {
+          "column_id": "text_mkzhtmpk",
+          "missing": false,
+          "text": "integrator.io is being decommissioned by NetSuite. Migrate nodes to SuiteApp.\n\nhttps://zopen.to/m9bjFVwpaTC6KD7fT58z",
+          "type": "text",
+          "value": "integrator.io is being decommissioned by NetSuite. Migrate nodes to SuiteApp.\n\nhttps://zopen.to/m9bjFVwpaTC6KD7fT58z"
+        },
+        "owner": {
+          "column_id": "multiple_person_mm085w1k",
+          "missing": false,
+          "text": "",
+          "type": "people",
+          "value": null
+        },
+        "planned_effort": {
+          "column_id": "numeric_mkzhjxzr",
+          "missing": false,
+          "text": "4",
+          "type": "numbers",
+          "value": "4"
+        },
+        "priority": {
+          "column_id": "color_mm08pcn4",
+          "missing": false,
+          "text": "Moderate",
+          "type": "status",
+          "value": {
+            "changed_at": "2026-06-17T18:13:38.060Z",
+            "index": 1,
+            "post_id": null
+          }
+        },
+        "user_story": {
+          "column_id": "text_mkzkbv5k",
+          "missing": false,
+          "text": "Deprecated NetSuite nodes will break supply chain",
+          "type": "text",
+          "value": "Deprecated NetSuite nodes will break supply chain"
+        },
+        "workflow_status": {
+          "column_id": "status",
+          "missing": false,
+          "text": "On Deck",
+          "type": "status",
+          "value": {
+            "changed_at": "2026-06-18T18:55:53.862Z",
+            "index": 3,
+            "post_id": null
+          }
+        }
+      },
+      "user_story": "Deprecated NetSuite nodes will break supply chain",
+      "workflow_status": "On Deck"
+    },
+    {
+      "created_at": "2026-06-04T20:01:15Z",
+      "department": "E-commerce",
+      "due_date": "",
+      "group_id": "group_mm3cp79e",
+      "group_name": "On Deck",
+      "item_id": "12196535714",
+      "item_url": "https://antiquecandleco-team.monday.com/boards/6687876910/pulses/12196535714",
+      "name": "Shipping Profiles issue with Matches in Orders",
+      "origin": "We have an issue with getting Shipping Profiles, shipping minimum, and Shopify Shipping Consolidation to work together. We are experiencing customers being double charged for shipping in some cases. For example, we sell products which include match boxes in them. We need to exclude any product with match products from going to Hawaii or Alaska but want them to be shipped to the rest of the US. We set up two shipping profiles to make this happen. If someone in the US (not Alaska or Hawaii) adds a match box product to their order and another non match box product, and is under our free shipping minimum, they will be double charged for shipping because their order falls under two shipping profiles (Shopify shipping consolidation).",
+      "owner": "",
+      "planned_effort_hours": null,
+      "priority": "Low",
+      "updated_at": "2026-06-18T18:55:59Z",
+      "useful_fields": {
+        "actual_effort": {
+          "column_id": "numeric_mkzhxj85",
+          "missing": false,
+          "text": "",
+          "type": "numbers",
+          "value": null
+        },
+        "department": {
+          "column_id": "dropdown_mm40mgzx",
+          "missing": false,
+          "text": "E-commerce",
+          "type": "dropdown",
+          "value": {
+            "ids": [
+              8
+            ]
+          }
+        },
+        "due_date": {
+          "column_id": "date4",
+          "missing": false,
+          "text": "",
+          "type": "date",
+          "value": null
+        },
+        "origin": {
+          "column_id": "text_mkzhtmpk",
+          "missing": false,
+          "text": "We have an issue with getting Shipping Profiles, shipping minimum, and Shopify Shipping Consolidation to work together. We are experiencing customers being double charged for shipping in some cases. For example, we sell products which include match boxes in them. We need to exclude any product with match products from going to Hawaii or Alaska but want them to be shipped to the rest of the US. We set up two shipping profiles to make this happen. If someone in the US (not Alaska or Hawaii) adds a match box product to their order and another non match box product, and is under our free shipping minimum, they will be double charged for shipping because their order falls under two shipping profiles (Shopify shipping consolidation).",
+          "type": "text",
+          "value": "We have an issue with getting Shipping Profiles, shipping minimum, and Shopify Shipping Consolidation to work together. We are experiencing customers being double charged for shipping in some cases. For example, we sell products which include match boxes in them. We need to exclude any product with match products from going to Hawaii or Alaska but want them to be shipped to the rest of the US. We set up two shipping profiles to make this happen. If someone in the US (not Alaska or Hawaii) adds a match box product to their order and another non match box product, and is under our free shipping minimum, they will be double charged for shipping because their order falls under two shipping profiles (Shopify shipping consolidation)."
+        },
+        "owner": {
+          "column_id": "multiple_person_mm085w1k",
+          "missing": false,
+          "text": "",
+          "type": "people",
+          "value": null
+        },
+        "planned_effort": {
+          "column_id": "numeric_mkzhjxzr",
+          "missing": false,
+          "text": "",
+          "type": "numbers",
+          "value": null
+        },
+        "priority": {
+          "column_id": "color_mm08pcn4",
+          "missing": false,
+          "text": "Low",
+          "type": "status",
+          "value": {
+            "changed_at": "2026-06-04T20:07:36.250Z",
+            "index": 2,
+            "post_id": null
+          }
+        },
+        "user_story": {
+          "column_id": "text_mkzkbv5k",
+          "missing": false,
+          "text": "We are experiencing customers being double charged for shipping in some cases",
+          "type": "text",
+          "value": "We are experiencing customers being double charged for shipping in some cases"
+        },
+        "workflow_status": {
+          "column_id": "status",
+          "missing": false,
+          "text": "On Deck",
+          "type": "status",
+          "value": {
+            "changed_at": "2026-06-18T18:55:58.580Z",
+            "index": 3,
+            "post_id": null
+          }
+        }
+      },
+      "user_story": "We are experiencing customers being double charged for shipping in some cases",
+      "workflow_status": "On Deck"
+    }
+  ],
+  "mode": "snapshot",
+  "source": {
+    "on_deck_group_id": "group_mm3cp79e",
+    "on_deck_group_name": "On Deck",
+    "page_count": 1,
+    "total_items_read": 33
+  },
+  "warnings": [
+    "No Blocked group ID is configured; inspection did not find a Blocked group.",
+    "Complete delivery group is configured as existing board group 'Completed Items'."
+  ],
+  "week_start": "2026-06-22"
+}

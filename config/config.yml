@@ -10,7 +10,29 @@ groups:
   in_progress: "In Progress"
   blocked: "Blocked"
   pending_approval: "Pending Approval"
-  complete: "Complete"
+  complete: "Completed Items"
+
+group_ids:
+  backlog: "group_mkygpt1p"
+  on_deck: "group_mm3cp79e"
+  in_progress: "group_mm08qgj5"
+  blocked: ""
+  pending_approval: "group_mm40bb9j"
+  complete: "group_mkyhapxp"
+  archive: "group_mm4c1h25"
+
+column_ids:
+  department: "dropdown_mm40mgzx"
+  owner: "multiple_person_mm085w1k"
+  workflow_status: "status"
+  priority: "color_mm08pcn4"
+  due_date: "date4"
+  origin: "text_mkzhtmpk"
+  user_story: "text_mkzkbv5k"
+  planned_effort: "numeric_mkzhjxzr"
+  actual_effort: "numeric_mkzhxj85"
+  solve_doc: "doc_mm40e8tp"
+  direct_doc: "direct_doc_mm44xa14"
 
 reporting:
   snapshot_day: "monday"

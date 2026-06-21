@@ -11,11 +11,12 @@ Implemented:
 - Read-only monday GraphQL client
 - Board inspection CLI
 - Dry-run inspection output
+- Monday On Deck snapshot CLI
+- Manual snapshot GitHub Actions workflow
 - Unit tests using the Python standard library
 
 Not implemented yet:
 
-- Monday snapshot generation
 - Friday evidence collection
 - Metrics
 - AI summary
@@ -49,6 +50,18 @@ Live read-only board inspection:
 
 ```powershell
 python -m src.inspect_board --sample-limit 5 --activity-limit 20
+```
+
+Snapshot dry run. This reads monday and writes only `output/snapshot_dry_run_YYYY-MM-DD.json`:
+
+```powershell
+python -m src.snapshot --week-start 2026-06-22 --dry-run
+```
+
+Real Monday snapshot. This writes `data/snapshots/YYYY-MM-DD.json` and refuses to overwrite by default:
+
+```powershell
+python -m src.snapshot --week-start 2026-06-22
 ```
 
 Run tests:

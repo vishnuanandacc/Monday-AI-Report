@@ -24,6 +24,8 @@ class AppSettings:
     timezone: str = "America/Indiana/Indianapolis"
     monday_board_id: str = ""
     groups: dict[str, str] = field(default_factory=dict)
+    group_ids: dict[str, str] = field(default_factory=dict)
+    column_ids: dict[str, str] = field(default_factory=dict)
     reporting: dict[str, Any] = field(default_factory=dict)
     rules: dict[str, Any] = field(default_factory=dict)
     ai: dict[str, Any] = field(default_factory=dict)
@@ -36,6 +38,8 @@ class AppSettings:
             timezone=self.timezone,
             monday_board_id=board_id,
             groups=dict(self.groups),
+            group_ids=dict(self.group_ids),
+            column_ids=dict(self.column_ids),
             reporting=dict(self.reporting),
             rules=dict(self.rules),
             ai=dict(self.ai),
@@ -78,6 +82,8 @@ def load_settings(
         "complete": "Complete",
     }
     groups.update(_dict_value(config, "groups"))
+    group_ids = _dict_value(config, "group_ids")
+    column_ids = _dict_value(config, "column_ids")
 
     reporting = {
         "snapshot_day": "monday",
@@ -114,6 +120,8 @@ def load_settings(
         timezone=timezone,
         monday_board_id=board_id,
         groups=groups,
+        group_ids={key: str(value or "") for key, value in group_ids.items()},
+        column_ids={key: str(value or "") for key, value in column_ids.items()},
         reporting=reporting,
         rules=rules,
         ai=ai,
