@@ -240,6 +240,11 @@ def get_monday_token(environ: Mapping[str, str] | None = None) -> str:
     return _normalize_token(mcp_auth)
 
 
+def get_openai_api_key(environ: Mapping[str, str] | None = None) -> str:
+    env = load_runtime_environment(environ)
+    return (env.get("OPENAI_API_KEY") or "").strip().strip('"').strip("'")
+
+
 def _normalize_token(token: str) -> str:
     token = token.strip().strip('"').strip("'")
     if token.lower().startswith("bearer "):

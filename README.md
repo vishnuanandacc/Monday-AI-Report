@@ -15,12 +15,13 @@ Implemented:
 - Friday evidence collection CLI
 - Deterministic metrics CLI
 - Deterministic Markdown report renderer
+- Guarded AI summary CLI with dry-run mode
 - Manual snapshot GitHub Actions workflow
 - Unit tests using the Python standard library
 
 Not implemented yet:
 
-- AI summary
+- AI summary integration into Markdown report
 
 ## Configure
 
@@ -37,6 +38,7 @@ Optional:
 
 - `REPORT_TIMEZONE`
 - `MONDAY_API_VERSION`
+- `OPENAI_MODEL`
 
 ## Local Commands
 
@@ -80,6 +82,18 @@ Report dry run. This reads evidence and metrics JSON locally and writes Markdown
 
 ```powershell
 python -m src.report --week-start 2026-06-22 --dry-run
+```
+
+AI summary dry run. This validates the schema and writes a placeholder without calling OpenAI:
+
+```powershell
+python -m src.ai_summary --week-start 2026-06-22 --dry-run
+```
+
+Live AI summary. This sends normalized evidence and metrics to OpenAI and writes structured JSON:
+
+```powershell
+python -m src.ai_summary --week-start 2026-06-22 --evidence output/evidence_dry_run_2026-06-22.json --metrics output/metrics_dry_run_2026-06-22.json --output output/ai_summary_2026-06-22.json
 ```
 
 Run tests:
