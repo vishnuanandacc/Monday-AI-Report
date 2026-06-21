@@ -14,13 +14,13 @@ Implemented:
 - Monday On Deck snapshot CLI
 - Friday evidence collection CLI
 - Deterministic metrics CLI
+- Deterministic Markdown report renderer
 - Manual snapshot GitHub Actions workflow
 - Unit tests using the Python standard library
 
 Not implemented yet:
 
 - AI summary
-- Markdown report rendering
 
 ## Configure
 
@@ -74,6 +74,12 @@ Metrics dry run. This reads evidence JSON locally and writes `output/metrics_dry
 
 ```powershell
 python -m src.metrics --week-start 2026-06-22 --dry-run
+```
+
+Report dry run. This reads evidence and metrics JSON locally and writes Markdown plus run metadata:
+
+```powershell
+python -m src.report --week-start 2026-06-22 --dry-run
 ```
 
 Run tests:
